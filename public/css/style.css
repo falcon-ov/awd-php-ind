@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Обеспечивает, чтобы body занимал всю высоту экрана */
+    display: flex;
+    flex-direction: column;
+}
+header {
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+main {
+    padding: 20px;
+    flex: 1; /* Main занимает всё доступное пространство, отодвигая footer вниз */
+}
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+form input, form select, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+form button {
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+.error {
+    color: red;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+table th {
+    background: #f4f4f4;
+}
+table td form {
+    display: inline;
+}
+table td form input, table td form textarea, table td form select {
+    width: auto;
+    display: inline-block;
+}
+.btn {
+    display: inline-block;
+    background: #333;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 10px 0;
+}
+.btn:hover {
+    background: #555;
+}
+.quiz-question {
+    margin: 20px 0;
+}
+.quiz-question label {
+    display: block;
+    margin: 10px 0;
+}
+.quiz-question input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
+}
