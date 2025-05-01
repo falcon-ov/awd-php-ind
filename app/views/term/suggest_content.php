@@ -15,4 +15,3 @@
         <button type="submit">Отправить на проверку</button>
     </form>
 </div>
-?>
