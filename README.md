@@ -205,6 +205,16 @@
 ### 5. Примеры использования
 
 #### Скриншоты
+
+![img](/README-images/image_1.png)
+![img](/README-images/image_2.png)
+![img](/README-images/image_3.png)
+![img](/README-images/image_4.png)
+![img](/README-images/image_5.png)
+![img](/README-images/image_6.png)
+![img](/README-images/image_7.png)
+
+### Описание
 1. **Главная страница** (`/`):
    - Отображает список терминов в виде карточек с розовой темой, полупрозрачным фоном для читаемости и фоновым изображением.
    - Доступна всем пользователям.
