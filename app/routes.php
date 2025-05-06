@@ -24,8 +24,6 @@ if ($uri === '/' || $uri === '/index.php') {
     (new AuthController())->logout();
 } elseif ($uri === '/term/suggest') {
     (new TermController())->suggest();
-} elseif ($uri === '/term/list') {
-    (new TermController())->list();
 } elseif ($uri === '/admin/dashboard') {
     (new AdminController())->dashboard();
 } elseif ($uri === '/admin/terms') {
