@@ -7,21 +7,23 @@
         </div>
     <?php endif; ?>
     <form method="POST" action="/quiz/create">
+        <input type="hidden" name="create" value="1">
         <label for="title">Название квиза:</label>
         <input type="text" id="title" name="title" required>
-        <?php if ($is_admin): ?>
-            <label>
-                <input type="checkbox" name="is_public" value="1">
-                Общедоступный квиз
-            </label><br>
-        <?php endif; ?>
         <h3>Выберите термины:</h3>
-        <?php foreach ($terms as $term): ?>
-            <label>
-                <input type="checkbox" name="term_ids[]" value="<?php echo $term['id']; ?>">
-                <?php echo htmlspecialchars($term['title']); ?> (<?php echo htmlspecialchars($term['category']); ?>)
-            </label><br>
-        <?php endforeach; ?>
+        <?php if (empty($terms)): ?>
+            <p>Нет доступных терминов для создания квиза.</p>
+        <?php else: ?>
+            <?php foreach ($terms as $term): ?>
+                <div class="term-item">
+                    <label>
+                        <input type="checkbox" name="term_ids[]" value="<?php echo $term['id']; ?>">
+                        <strong><?php echo htmlspecialchars($term['title']); ?></strong>
+                    </label>
+                    <p class="term-definition"><?php echo htmlspecialchars(substr($term['definition'], 0, 100)) . (strlen($term['definition']) > 100 ? '...' : ''); ?></p>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
         <button type="submit">Создать</button>
     </form>
 </div>

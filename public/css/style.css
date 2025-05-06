@@ -1,104 +1,243 @@
+/* Общие стили */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    min-height: 100vh; /* Обеспечивает, чтобы body занимал всю высоту экрана */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: url('./background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
 }
+
+/* Хедер */
 header {
-    background: #333;
+    background: linear-gradient(135deg, #e91e63, #c2185b);
     color: white;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Навигация */
 nav a {
     color: white;
-    margin: 0 10px;
+    margin: 0 15px;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
+
+nav a:hover {
+    color: #f8bbd0;
+    transform: scale(1.1);
+}
+
+/* Основной контент */
 main {
     padding: 20px;
-    flex: 1; /* Main занимает всё доступное пространство, отодвигая footer вниз */
+    flex: 1;
+    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон для читаемости */
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Футер */
 footer {
-    background: #333;
+    background: linear-gradient(135deg, #e91e63, #c2185b);
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
-form {
-    max-width: 600px;
+
+/* Контейнер */
+.container {
+    max-width: 900px;
     margin: 0 auto;
+    padding: 20px;
 }
+
+/* Формы */
+form {
+    max-width: 700px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 form label {
     display: block;
-    margin: 10px 0 5px;
+    margin: 15px 0 5px;
+    font-weight: bold;
+    color: #e91e63;
 }
+
 form input, form select, form textarea {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-form button {
-    background: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-.card {
-    border: 1px solid #ccc;
     padding: 10px;
-    margin: 10px 0;
+    margin-bottom: 15px;
+    border: 2px solid #f06292;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+form input:focus, form select:focus, form textarea:focus {
+    border-color: #c2185b;
+    box-shadow: 0 0 5px rgba(233, 30, 99, 0.5);
+    outline: none;
+}
+
+form button {
+    background: #e91e63;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background: #c2185b;
+    transform: translateY(-2px);
+}
+
+/* Карточки */
+.card {
+    border: 1px solid #f06292;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ошибки */
 .error {
-    color: red;
+    color: #d81b60;
+    font-weight: bold;
 }
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
+
+/* Таблицы */
 table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
 table th, table td {
-    border: 1px solid #ccc;
-    padding: 8px;
+    border: 1px solid #f06292;
+    padding: 12px;
     text-align: left;
 }
+
 table th {
-    background: #f4f4f4;
+    background: #f8bbd0;
+    color: #333;
+    font-weight: bold;
 }
+
 table td form {
     display: inline;
 }
+
 table td form input, table td form textarea, table td form select {
     width: auto;
     display: inline-block;
+    margin: 0;
 }
+
+/* Кнопки */
 .btn {
     display: inline-block;
-    background: #333;
+    background: #e91e63;
     color: white;
-    padding: 8px 16px;
+    padding: 10px 20px;
     text-decoration: none;
+    border-radius: 5px;
     margin: 10px 0;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
+
 .btn:hover {
-    background: #555;
+    background: #c2185b;
+    transform: translateY(-2px);
 }
+
+/* Вопросы квиза */
 .quiz-question {
-    margin: 20px 0;
+    margin: 25px 0;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
 .quiz-question label {
     display: block;
-    margin: 10px 0;
+    margin: 15px 0;
+    color: #333;
 }
+
 .quiz-question input[type="radio"] {
     width: auto;
+    margin-right: 15px;
+}
+
+/* Элементы терминов (для create_content.php) */
+.term-item {
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid #f06292;
+    border-radius: 8px;
+    background: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.term-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.term-definition {
+    margin: 8px 0 0 25px;
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+/* Чекбоксы */
+input[type="checkbox"], input[type="radio"] {
+    accent-color: #e91e63;
+    transform: scale(1.2);
     margin-right: 10px;
+}
+
+/* Анимация для интерактивных элементов */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+main, .card, .term-item {
+    animation: fadeIn 0.5s ease-in;
 }

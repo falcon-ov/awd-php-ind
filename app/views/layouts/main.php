@@ -16,7 +16,6 @@
                 <?php if ($_SESSION['role'] === 'user'): ?>
                     <a href="/term/suggest">Предложить термин</a>
                 <?php endif; ?>
-                <a href="/term/list">Мои термины</a>
                 <?php if ($_SESSION['role'] === 'admin'): ?>
                     <a href="/admin/dashboard">Админ-панель</a>
                     <a href="/admin/suggestions">Предложения терминов</a>

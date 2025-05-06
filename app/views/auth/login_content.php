@@ -2,7 +2,7 @@
 <?php if (isset($error)): ?>
     <p class="error"><?php echo $error; ?></p>
 <?php endif; ?>
-<form id="loginForm" method="POST" action="/login" onsubmit="return validateForm('loginForm')">
+<form id="loginForm" method="POST" action="/login">
     <label>Логин: <input type="text" name="username" required></label>
     <label>Пароль: <input type="password" name="password" required></label>
     <button type="submit">Войти</button>

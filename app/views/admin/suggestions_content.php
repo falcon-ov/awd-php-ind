@@ -20,8 +20,8 @@
                     <td><?php echo htmlspecialchars($suggestion['created_at']); ?></td>
                     <td>
                         <form method="POST" style="display:inline;">
-                            <input type="hidden" name="accept" value="1">
-                            <input type="hidden" name="id" value="<?php echo $suggestion['id']; ?>">
+                            <input type="hidden" name="suggestion_id" value="<?php echo $suggestion['id']; ?>">
+                            <input type="hidden" name="approve" value="1">
                             <select name="status" required>
                                 <option value="active">Активен</option>
                                 <option value="inactive">Неактивен</option>
@@ -29,8 +29,8 @@
                             <button type="submit">Принять</button>
                         </form>
                         <form method="POST" style="display:inline;">
-                            <input type="hidden" name="delete" value="1">
-                            <input type="hidden" name="id" value="<?php echo $suggestion['id']; ?>">
+                            <input type="hidden" name="suggestion_id" value="<?php echo $suggestion['id']; ?>">
+                            <input type="hidden" name="reject" value="1">
                             <button type="submit">Отклонить</button>
                         </form>
                     </td>
