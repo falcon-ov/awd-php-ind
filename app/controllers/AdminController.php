@@ -6,6 +6,13 @@ require_once __DIR__ . '/../utils/validate.php';
 require_once __DIR__ . '/../utils/hash.php';
 
 class AdminController {
+
+    /**
+     * Проверяет, является ли пользователь администратором.
+     * Если нет, перенаправляет на страницу логина.
+     *
+     * @return void
+     */
     private function checkAdmin() {
         if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
             header('Location: /login');
@@ -13,6 +20,11 @@ class AdminController {
         }
     }
 
+    /**
+     * Отображает панель администратора с общей статистикой.
+     *
+     * @return void
+     */
     public function dashboard() {
         $this->checkAdmin();
         $db = getDatabaseConnection();
@@ -22,6 +34,11 @@ class AdminController {
         require __DIR__ . '/../views/admin/dashboard.php';
     }
 
+    /**
+     * Управление терминами (создание, обновление, удаление).
+     *
+     * @return void
+     */
     public function manageTerms() {
         $this->checkAdmin();
         $terms = Term::getAll();
@@ -64,6 +81,11 @@ class AdminController {
         require __DIR__ . '/../views/admin/terms.php';
     }
 
+    /**
+     * Управление пользователями (создание, удаление).
+     *
+     * @return void
+     */
     public function manageUsers() {
         $this->checkAdmin();
         $db = getDatabaseConnection();
@@ -110,6 +132,11 @@ class AdminController {
         require __DIR__ . '/../views/admin/users.php';
     }
 
+    /**
+     * Управление квизами (создание, удаление).
+     *
+     * @return void
+     */
     public function manageQuizzes() {
         $this->checkAdmin();
         $quizzes = Quiz::getAll();
@@ -134,6 +161,11 @@ class AdminController {
         require __DIR__ . '/../views/admin/quizzes.php';
     }
 
+    /**
+     * Управление предложениями терминов (одобрение, отклонение).
+     *
+     * @return void
+     */
     public function manageSuggestions() {
         $this->checkAdmin();
         $suggestions = Term::getSuggestions();

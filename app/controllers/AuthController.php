@@ -4,11 +4,19 @@ require_once __DIR__ . '/../utils/hash.php';
 require_once __DIR__ . '/../utils/validate.php';
 
 /**
- * Контроллер для управления аутентификацией пользователей.
+ * Class AuthController
+ * 
+ * Handles user authentication operations such as login, registration, and logout.
  */
 class AuthController {
+
     /**
-     * Обработка входа пользователя.
+     * Обрабатывает вход пользователя в систему.
+     * 
+     * Проверяет учетные данные пользователя и начинает сессию, если данные верны.
+     * Если метод запроса не POST, отображает страницу логина.
+     * 
+     * @return void
      */
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -30,7 +38,12 @@ class AuthController {
     }
 
     /**
-     * Обработка регистрации пользователя.
+     * Обрабатывает регистрацию пользователя.
+     * 
+     * Проверяет входные данные и создает нового пользователя, если имя не занято.
+     * Если метод запроса не POST, отображает страницу регистрации.
+     * 
+     * @return void
      */
     public function register() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -51,7 +64,11 @@ class AuthController {
     }
 
     /**
-     * Выход пользователя.
+     * Выполняет выход пользователя из системы.
+     * 
+     * Уничтожает текущую сессию и перенаправляет на главную страницу.
+     * 
+     * @return void
      */
     public function logout() {
         session_destroy();
@@ -59,3 +76,4 @@ class AuthController {
         exit;
     }
 }
+?>

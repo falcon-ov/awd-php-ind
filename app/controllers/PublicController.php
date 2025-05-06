@@ -4,17 +4,34 @@ require_once __DIR__ . '/../models/Quiz.php';
 require_once __DIR__ . '/../utils/validate.php';
 
 class PublicController {
+
+    /**
+     * Отображает главную страницу с списком всех терминов.
+     *
+     * @return void
+     */
     public function index() {
         $terms = Term::getAll();
         require __DIR__ . '/../views/public/index.php';
     }
 
+    /**
+     * Обрабатывает поиск терминов по запросу.
+     *
+     * @return void
+     */
     public function search() {
         $search = isset($_GET['search']) ? validateInput($_GET['search']) : '';
         $terms = Term::search($search);
         require __DIR__ . '/../views/public/search.php';
     }
 
+    /**
+     * Управляет процессом прохождения квиза.
+     * Обрабатывает выбор квиза, ответы пользователя, удаление квиза и отображение вопросов.
+     *
+     * @return void
+     */
     public function quiz() {
         $quizzes = Quiz::getAllPublic();
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['quiz_id'])) {
@@ -84,6 +101,11 @@ class PublicController {
         require __DIR__ . '/../views/public/quiz_select.php';
     }
 
+    /**
+     * Обрабатывает создание нового квиза авторизованным пользователем.
+     *
+     * @return void
+     */
     public function createQuiz() {
         if (!isset($_SESSION['user_id'])) {
             header('Location: /login');
@@ -102,6 +124,11 @@ class PublicController {
         require __DIR__ . '/../views/public/quiz_create.php';
     }
 
+    /**
+     * Отображает результаты последнего пройденного квиза.
+     *
+     * @return void
+     */
     public function quizResult() {
         if (!isset($_SESSION['quiz_result'])) {
             $_SESSION['message'] = 'Результаты квиза недоступны.';
@@ -109,10 +136,18 @@ class PublicController {
             exit;
         }
         $result = $_SESSION['quiz_result'];
-        unset($_SESSION['quiz_result']); // Очищаем после отображения
+        unset($_SESSION['quiz_result']);
         require __DIR__ . '/../views/public/quiz_result.php';
     }
 
+    /**
+     * Сохраняет результаты квиза в базе данных и сессии.
+     *
+     * @param int $quiz_id ID квиза
+     * @param int $score Количество правильных ответов
+     * @param int $total Общее количество вопросов
+     * @return void
+     */
     private function saveQuizResult($quiz_id, $score, $total) {
         if (isset($_SESSION['user_id'])) {
             $db = getDatabaseConnection();
